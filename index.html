@@ -123,7 +123,30 @@ $gallery_categories = [
     border-radius: 6px;
 }
 
-.carousel-item img { max-height: 500px; object-fit: cover; width:100%; }
+/* Carousel sizing - responsive and consistent */
+/* Use viewport height so carousel adapts to screen size but stays proportional */
+.carousel-inner {
+    height: 60vh;            /* carousel height: 60% of viewport height */
+    max-height: 700px;      /* don't get taller than this on large screens */
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* crop to fill without distortion */
+    object-position: center;
+    display: block;
+}
+
+/* Smaller screens: reduce carousel height */
+@media (max-width: 768px) {
+    .carousel-inner { height: 45vh; max-height: 450px; }
+}
+
 </style>
 </head>
 
@@ -287,7 +310,7 @@ $gallery_categories = [
               <div class="carousel-inner">
                 <?php foreach ($images as $i => $img): ?>
                   <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
-                    <img src="<?php echo e($img); ?>" class="d-block w-100" alt="<?php echo e($cat); ?> image <?php echo $i+1; ?>">
+                    <img src="<?php echo e($img); ?>" loading="lazy" class="d-block w-100" alt="<?php echo e($cat); ?> image <?php echo $i+1; ?>">
                   </div>
                 <?php endforeach; ?>
               </div>
