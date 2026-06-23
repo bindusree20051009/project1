@@ -42,6 +42,10 @@ $gallery_categories = [
     'furniture' => get_images_for_category('furniture'),
     'kitchen'   => get_images_for_category('kitchen'),
     'wardrobe'  => get_images_for_category('wardrobe'),
+    'pooja'     => get_images_for_category('pooja'),
+    'hall'      => get_images_for_category('hall'),
+    'dressing_table' => get_images_for_category('dressing_table'),
+    'bathroom'  => get_images_for_category('bathroom'),
 ];
 
 ?>
@@ -184,7 +188,7 @@ $gallery_categories = [
 <section class="container py-5" id="services">
 <h2 class="text-center mb-5">Our Services</h2>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 mb-4">
         <div class="card service-card shadow">
             <div class="card-body text-center">
                 <h4>Furniture Making</h4>
@@ -195,7 +199,7 @@ $gallery_categories = [
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb-4">
         <div class="card service-card shadow">
             <div class="card-body text-center">
                 <h4>Modular Kitchen</h4>
@@ -206,7 +210,7 @@ $gallery_categories = [
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb-4">
         <div class="card service-card shadow">
             <div class="card-body text-center">
                 <h4>Wardrobes</h4>
@@ -214,6 +218,50 @@ $gallery_categories = [
                 <p class="text-muted">Starting from ₹8,000</p>
                 <a href="register.php?service=wardrobe" class="btn btn-primary btn-sm">Book Now</a>
                 <button class="btn btn-outline-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#galleryModal-wardrobe">View Gallery</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card service-card shadow">
+            <div class="card-body text-center">
+                <h4>Pooja Room</h4>
+                <p>Beautiful and sacred pooja room designs.</p>
+                <p class="text-muted">Starting from ₹6,000</p>
+                <a href="register.php?service=pooja" class="btn btn-primary btn-sm">Book Now</a>
+                <button class="btn btn-outline-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#galleryModal-pooja">View Gallery</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card service-card shadow">
+            <div class="card-body text-center">
+                <h4>Hall Furniture</h4>
+                <p>Living room and hall interior designs.</p>
+                <p class="text-muted">Starting from ₹10,000</p>
+                <a href="register.php?service=hall" class="btn btn-primary btn-sm">Book Now</a>
+                <button class="btn btn-outline-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#galleryModal-hall">View Gallery</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card service-card shadow">
+            <div class="card-body text-center">
+                <h4>Dressing Table</h4>
+                <p>Elegant dressing tables with storage.</p>
+                <p class="text-muted">Starting from ₹4,000</p>
+                <a href="register.php?service=dressing_table" class="btn btn-primary btn-sm">Book Now</a>
+                <button class="btn btn-outline-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#galleryModal-dressing_table">View Gallery</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card service-card shadow">
+            <div class="card-body text-center">
+                <h4>Bathroom Fixtures</h4>
+                <p>Modern bathroom cabinets and fixtures.</p>
+                <p class="text-muted">Starting from ₹7,000</p>
+                <a href="register.php?service=bathroom" class="btn btn-primary btn-sm">Book Now</a>
+                <button class="btn btn-outline-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#galleryModal-bathroom">View Gallery</button>
             </div>
         </div>
     </div>
@@ -294,12 +342,13 @@ $gallery_categories = [
 <?php foreach ($gallery_categories as $cat => $images):
     $modalId = 'galleryModal-' . e($cat);
     $carouselId = 'carousel-' . e($cat);
+    $displayName = str_replace('_', ' ', ucfirst($cat));
 ?>
 <div class="modal fade" id="<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="<?php echo $modalId; ?>Label" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="<?php echo $modalId; ?>Label"><?php echo ucfirst(e($cat)); ?> Gallery</h5>
+        <h5 class="modal-title" id="<?php echo $modalId; ?>Label"><?php echo e($displayName); ?> Gallery</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
