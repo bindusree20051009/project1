@@ -1,7 +1,4 @@
--- Hari Carpenter Database Schema
--- Create database
-CREATE DATABASE IF NOT EXISTS hari_carpenter;
-USE hari_carpenter;
+;
 
 -- Admins table with secure password storage
 CREATE TABLE IF NOT EXISTS admins (
