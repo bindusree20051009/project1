@@ -429,7 +429,7 @@ $gallery_categories = [
                 </button>
                 <div class="carousel-indicators mt-3">
                   <?php foreach ($images as $j => $img): ?>
-                    <button type="button" data-bs-target="#<?php echo $carouselId; ?>" data-bs-slide-to="<?php echo $j; ?>" class="<?php echo $j === 0 ? 'active' : ''; ?>" aria-current="<?php echo $j === 0 ? 'true' : 'false'; ?>" aria-label="<?php echo e($cat . ' slide ' . ($j + 1)); ?>"></button>
+                    <button type="button" data-bs-target="#<?php echo $carouselId; ?>" data-bs-slide-to="<?php echo $j; ?>" class="<?php echo $j === 0 ? 'active' : ''; ?>" aria-current="<?php echo $j === 0 ? 'true' : 'false'; ?>" aria-label="Slide <?php echo ($j + 1); ?>"></button>
                   <?php endforeach; ?>
                 </div>
               <?php endif; ?>
