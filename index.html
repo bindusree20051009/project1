@@ -409,11 +409,11 @@ $gallery_categories = [
                     <?php
                     // Try to build responsive srcset; falls back to simple img if resizing not available
                     $srcset = ensure_responsive_images($img, [600,1200,1800]);
-                    if ($srcset):
                     ?>
-                      <img src="<?php echo e($img); ?>" srcset="<?php echo e($srcset); ?>" sizes="(max-width:768px) 90vw, (max-width:1200px) 95vw, 1200px" loading="lazy" class="d-block w-100" alt="<?php echo e($cat); ?> image <?php echo $i+1; ?>">
+                    <?php if ($srcset): ?>
+                      <img src="<?php echo e($img); ?>" srcset="<?php echo e($srcset); ?>" sizes="(max-width:768px) 90vw, (max-width:1200px) 95vw, 1200px" loading="lazy" class="d-block w-100" alt="<?php echo e($cat . ' image ' . ($i + 1)); ?>">
                     <?php else: ?>
-                      <img src="<?php echo e($img); ?>" loading="lazy" class="d-block w-100" alt="<?php echo e($cat); ?> image <?php echo $i+1; ?>">
+                      <img src="<?php echo e($img); ?>" loading="lazy" class="d-block w-100" alt="<?php echo e($cat . ' image ' . ($i + 1)); ?>">
                     <?php endif; ?>
                   </div>
                 <?php endforeach; ?>
@@ -429,7 +429,7 @@ $gallery_categories = [
                 </button>
                 <div class="carousel-indicators mt-3">
                   <?php foreach ($images as $j => $img): ?>
-                    <button type="button" data-bs-target="#<?php echo $carouselId; ?>" data-bs-slide-to="<?php echo $j; ?>" class="<?php echo $j === 0 ? 'active' : ''; ?>" aria-current="<?php echo $j === 0 ? 'true' : 'false'; ?>" aria-label="Slide <?php echo $j+1; ?>"></button>
+                    <button type="button" data-bs-target="#<?php echo $carouselId; ?>" data-bs-slide-to="<?php echo $j; ?>" class="<?php echo $j === 0 ? 'active' : ''; ?>" aria-current="<?php echo $j === 0 ? 'true' : 'false'; ?>" aria-label="<?php echo e($cat . ' slide ' . ($j + 1)); ?>"></button>
                   <?php endforeach; ?>
                 </div>
               <?php endif; ?>
